@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { ShinyText } from "@/components/ShinnyText";
 import {
   Search,
   Filter,
@@ -41,6 +42,7 @@ const ScrollAnimatedSection = ({ children }: ScrollAnimatedSectionProps) => {
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5 }}
+      className=""
     >
       {children}
     </motion.div>
@@ -94,9 +96,15 @@ export default function Home() {
             >
               <path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
             </svg>
-            <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
+            {/* <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
               AI-Assisted Search
-            </span>
+            </span> */}
+            <ShinyText
+              text="AI-Assisted Search"
+              speed={5}                    
+              className="bg-gradient-to-r from-indigo-400 to-purple-400"
+            />
+
           </motion.div>
 
           <motion.div
@@ -282,7 +290,7 @@ export default function Home() {
       <ScrollAnimatedSection>
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-6 text-center">
-            
+
             <div className="rounded-3xl shadow-xl overflow-hidden">
               <ImageShowcaseCarousel />
             </div>

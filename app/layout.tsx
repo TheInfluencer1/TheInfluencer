@@ -70,7 +70,7 @@ export default function RootLayout({
               </motion.div>
               {/* Desktop Navigation */}
               <div className="hidden md:flex space-x-16">
-                {["Home", "About", "Features", "Contact"].map((item, index) => (
+                {["Home", "About", "Features", "Contact", "Dashboard"].map((item, index) => (
                   <motion.div
                     key={item}
                     variants={navItemVariants}
@@ -78,12 +78,23 @@ export default function RootLayout({
                     animate="visible"
                     transition={{ delay: index * 0.1 }}
                   >
-                    <Link
-                      href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                      className="text-sm text-white hover:text-gray-300 transition-colors"
-                    >
-                      {item}
-                    </Link>
+                    {item === "Dashboard" ? (
+                      <a
+                        href="https://theinfluencer1001.vercel.app/dashboard"
+                        className="text-sm text-white hover:text-gray-300 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {item}
+                      </a>
+                    ) : (
+                      <Link
+                        href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                        className="text-sm text-white hover:text-gray-300 transition-colors"
+                      >
+                        {item}
+                      </Link>
+                    )}
                   </motion.div>
                 ))}
               </div>
